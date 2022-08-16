@@ -11,9 +11,6 @@ import Typography from '@mui/material/Typography';
 
 
 const SubSection = () => {
-    const theme = useTheme();
-    const largeScreen = useMediaQuery(theme.breakpoints.up('sm'));
-
     return (
         <div className="SubContainer">
             <div className="Header">
