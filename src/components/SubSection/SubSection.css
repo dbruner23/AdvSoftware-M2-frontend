@@ -1,0 +1,45 @@
+.SubContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.Header {
+    display: flex;
+    align-items: center;
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: 2.5rem;
+    height: 25vh;
+
+}
+
+.CardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100vw;
+    height: 75vh;
+    gap: 4rem;
+    background-color: white;
+}
+
+@media screen and (max-width: 480px) {
+    .SubContainer {
+        height: 175vh;
+    }
+
+    .Header {
+        font-size: 2rem;
+        margin: 30px;
+    }
+
+    .CardContainer {
+        flex-direction: column;
+        height: 160vh;
+        background-color: white;
+        gap: 1rem;
+    }
+}
