@@ -61,6 +61,7 @@
     padding: 10px;
 }
 
+
 .Search > input {
     display: flex;
     align-items: center;
@@ -95,6 +96,12 @@
     cursor: pointer
 }
 
+.ImageUpload {
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+}
+
 @media screen and (max-width: 480px) {
     .Search {
         width: 60vw;
@@ -110,3 +117,4 @@
 
     .s-icon {}
 }
+

@@ -1,10 +1,43 @@
 import React from 'react'
 import './Main.css'
-import { useEffect, useRef } from 'react'
-import { UilSearch } from '@iconscout/react-unicons'
+import { useState, useEffect, useRef } from 'react'
+import { UilSearch, UilTimes } from '@iconscout/react-unicons'
+import axios from 'axios'
 
 const Main = () => {
-    
+  const [image, setImage] = useState(null);
+
+  const onImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      let img = e.target.files[0];
+      // const data = new FormData();
+      // data.append('file', img)
+      setImage(img)
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const visionFile = {};
+    const data = new FormData();
+    const fileName = image.name;
+    data.append("name", fileName);
+    data.append("file", image);
+    visionFile.image = fileName
+    try {
+      await axios.post('http://localhost:4000/upload', data)
+    } catch (error) {
+      console.log(error);
+    }
+    try {
+      await axios.post('http://localhost:4000/vision', visionFile)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
     
  return (
     <div className="VideoContainer">
@@ -18,6 +51,21 @@ const Main = () => {
                 <UilSearch/>
                 </div>      
         </div>
+        <div className="ImageUpload">
+          <input
+          type="file"
+          name="myImage"
+          onChange={onImageChange}
+          />
+       <button className="button ps-button" onClick={handleSubmit}>Search</button>
+        </div>
+        {image && (
+          <div className="previewImage">
+            <UilTimes onClick={() => setImage(null)} />
+            <img src={URL.createObjectURL(image)} alt="" />
+          </div>
+        )}
+        
     </div>
   )
 }

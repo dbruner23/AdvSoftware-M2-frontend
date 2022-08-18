@@ -19,3 +19,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/client_secret_189820386533-p7fd7qm870p40p4qua764lihbd3jhkl1.apps.googleusercontent.com.json
+/car-image-search.json
