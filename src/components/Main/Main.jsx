@@ -3,9 +3,12 @@ import './Main.css'
 import { useState, useEffect, useRef } from 'react'
 import { UilSearch, UilTimes } from '@iconscout/react-unicons'
 import axios from 'axios'
+import cors from 'cors'
 
 const Main = () => {
   const [image, setImage] = useState(null);
+  const [returnImage, setReturnImage] = useState(null);
+  
 
   const onImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -30,14 +33,19 @@ const Main = () => {
     } catch (error) {
       console.log(error);
     }
+    
     try {
       await axios.post('http://localhost:4000/vision', visionFile)
+        .then(res => {
+          console.log(res.data)
+          setReturnImage(res.data.images[0].link)
+        })
     } catch (error) {
       console.log(error);
     }
   }
 
-
+  console.log(returnImage);
     
  return (
     <div className="VideoContainer">
@@ -63,6 +71,12 @@ const Main = () => {
           <div className="previewImage">
             <UilTimes onClick={() => setImage(null)} />
             <img src={URL.createObjectURL(image)} alt="" />
+          </div>
+        )}
+        {returnImage && (
+          <div className="previewImage">
+            <UilTimes onClick={() => setImage(null)} />
+            <img src={returnImage} alt="" />
           </div>
         )}
         
