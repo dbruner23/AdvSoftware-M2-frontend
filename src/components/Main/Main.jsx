@@ -5,7 +5,7 @@ import { UilSearch, UilTimes } from '@iconscout/react-unicons'
 import axios from 'axios'
 import cors from 'cors'
 
-const Main = () => {
+const Main = ({getCarData}) => {
   const [image, setImage] = useState(null);
   const [returnImage, setReturnImage] = useState(null);
   
@@ -39,6 +39,9 @@ const Main = () => {
         .then(res => {
           console.log(res.data)
           setReturnImage(res.data.images[0].link)
+          getCarData(res.data.images[0].link)
+          setImage(null)
+
         })
     } catch (error) {
       console.log(error);
@@ -74,7 +77,7 @@ const Main = () => {
           </div>
         )}
         {returnImage && (
-          <div className="previewImage">
+          <div className="returnImage">
             <UilTimes onClick={() => setImage(null)} />
             <img src={returnImage} alt="" />
           </div>
