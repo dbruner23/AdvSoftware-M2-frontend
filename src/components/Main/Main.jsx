@@ -3,12 +3,11 @@ import './Main.css'
 import { useState, useEffect, useRef } from 'react'
 import { UilSearch, UilTimes } from '@iconscout/react-unicons'
 import axios from 'axios'
-import cors from 'cors'
 
-const Main = ({getCarData}) => {
+const Main = ({getCarImages}) => {
   const [image, setImage] = useState(null);
-  const [returnImage, setReturnImage] = useState(null);
-  
+  const [returnImages, setReturnImages] = useState(null);
+  console.log(returnImages);
 
   const onImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -38,17 +37,18 @@ const Main = ({getCarData}) => {
       await axios.post('http://localhost:4000/vision', visionFile)
         .then(res => {
           console.log(res.data)
-          setReturnImage(res.data.images[0].link)
-          getCarData(res.data.images[0].link)
+          const imageurls = [];
+          res.data.images.forEach((image) => {
+            imageurls.push(image.link);
+          });
+          setReturnImages(imageurls)
+          getCarImages(imageurls)
           setImage(null)
-
         })
     } catch (error) {
       console.log(error);
     }
   }
-
-  console.log(returnImage);
     
  return (
     <div className="VideoContainer">
@@ -76,12 +76,12 @@ const Main = ({getCarData}) => {
             <img src={URL.createObjectURL(image)} alt="" />
           </div>
         )}
-        {returnImage && (
+        {/* {returnImage && (
           <div className="returnImage">
             <UilTimes onClick={() => setImage(null)} />
             <img src={returnImage} alt="" />
           </div>
-        )}
+        )} */}
         
     </div>
   )

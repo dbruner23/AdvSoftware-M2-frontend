@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 
 
 
-const SubSection = () => {
+const SubSection = ({carImages}) => {
     return (
         <div className="SubContainer">
             <div className="Header">
@@ -21,7 +21,7 @@ const SubSection = () => {
                     <CardMedia
                         component="img"
                         height="200"
-                        image="https://cds.chinadaily.com.cn/dams/capital/image/202011/09/5fa8d9d6e4b0fbee20198360.jpeg"
+                        image={carImages !== null ? carImages[0] : 'https://autodiscoveries.com/wp-content/uploads/2021/11/Mercedes-Benz-Vision-AVTR-The-Most-Futuristic-Car-From-MB-1-scaled.jpg'}
                         alt="green iguana"
                     />
                     <CardContent>
@@ -41,7 +41,7 @@ const SubSection = () => {
                     <CardMedia
                         component="img"
                         height="200"
-                        image="https://carsoid.com/wp-content/uploads/2019/08/Amazing-Futuristic-Cars-820x461.jpg"
+                        image={carImages !== null ? carImages[1] : "https://carsoid.com/wp-content/uploads/2019/08/Amazing-Futuristic-Cars-820x461.jpg"}
                         alt="green iguana"
                     />
                     <CardContent>
@@ -61,7 +61,7 @@ const SubSection = () => {
                     <CardMedia
                         component="img"
                         height="200"
-                        image="https://inteng-storage.s3.amazonaws.com/img/iea/lV6D2jqrOx/amazingcars11.jpg"
+                        image={carImages !== null ? carImages[2] : "https://inteng-storage.s3.amazonaws.com/img/iea/lV6D2jqrOx/amazingcars11.jpg"}
                         alt="green iguana"
                     />
                     <CardContent>

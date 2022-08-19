@@ -7,21 +7,18 @@ import { useState } from 'react'
 
 
 const Home = () => {
-  const [carData, setCarData] = useState(null)
+  const [carImages, setCarImages] = useState(null)
 
-  const getCarData = (images) => {
-    setCarData(images)
+  const getCarImages = (images) => {
+    setCarImages(images)
   }
-
-  console.log(carData);
 
   return (
       <div>
         <Navbar />
-        <Main getCarData={getCarData} />
-        <SubSection/>
+        <Main getCarImages={getCarImages} />
+       <SubSection carImages={carImages} />
       </div>
-      
   )
 }
 
