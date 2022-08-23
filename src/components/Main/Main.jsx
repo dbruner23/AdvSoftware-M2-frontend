@@ -1,14 +1,35 @@
 import React from 'react'
 import './Main.css'
 import { UilSearch, UilTimes } from '@iconscout/react-unicons'
+import { useRef } from 'react'
+import axios from 'axios'
 
 
 const Main = ({ imageSearch }) => {
   
+const query = useRef()
+
 const scrollToImageSearch = () => {
   imageSearch.current.scrollIntoView({ behavior: "smooth" })
-} 
+}
+  
+const search = async () => {
+  const queryParams = query.current.value;
 
+  try {
+    await axios.get(`https://api.bing.microsoft.com/v7.0/custom/search?q=${queryParams}&customconfig=1b066c85-85dd-4d53-83b6-25966db0f6e9&mkt=en-US`, {
+      headers: {
+        "Ocp-Apim-Subscription-Key": `${process.env.REACT_APP_AZURE_KEY}`
+      }
+    }).then((res) => {
+        console.log(res.data);
+    }) 
+  } catch (error) {
+    console.log(error);
+  }
+
+
+}
     
  return (
     <div className="VideoContainer" >
@@ -17,8 +38,8 @@ const scrollToImageSearch = () => {
              The sweetest used car deals you can imagine...
          </div>
         <div className="Search">
-                <input className="SearchBar" type="text" placeholder="Search our site"/>
-                <div className="s-icon">
+       <input className="SearchBar" type="text" placeholder="Search our site" name="search" ref={query} />
+                <div className="s-icon" onClick={search}>
                 <UilSearch/>
                 </div>      
      </div>
