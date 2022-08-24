@@ -9,6 +9,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <script type="text/javascript"
+      id="bcs_js_snippet"
+      src="https://ui.customsearch.ai/api/ux/rendering-js?customConfig=1b066c85-85dd-4d53-83b6-25966db0f6e9&market=en-US&version=latest&q=">
+    </script>
   </React.StrictMode>
 );
 
