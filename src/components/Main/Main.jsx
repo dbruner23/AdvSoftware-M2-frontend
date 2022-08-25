@@ -4,6 +4,7 @@ import { UilSearch, UilTimes } from '@iconscout/react-unicons'
 import { useState, useRef } from 'react'
 import axios from 'axios'
 import SearchModal from '../SearchModal/SearchModal.jsx'
+import { removePunctuation } from './utility'
 
 
 
@@ -13,7 +14,9 @@ const Main = ({ imageSearch }) => {
   const [queryParams, setQueryParams] = useState('');
 
   const handleChange = (e) => {
-    setQueryParams(e.target.value);
+    let searchText = removePunctuation(e.target.value)
+    console.log(searchText);
+    setQueryParams(searchText)
   }
 
   const scrollToImageSearch = () => {

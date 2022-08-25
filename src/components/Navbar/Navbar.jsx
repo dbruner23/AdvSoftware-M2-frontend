@@ -2,6 +2,7 @@ import React from 'react'
 import './Navbar.css'
 import { useState } from 'react'
 
+
 const Navbar = () => {
   const [productsList, setProductsList] = useState(false)
   const [companyList, setCompanyList] = useState(false)
@@ -12,9 +13,9 @@ const Navbar = () => {
 
   return (
     <div className="NavBar">
-        <div className="Logo">
+      <div className="Logo" data-testid="logolink"href="https://www.turners.co.nz">
           <img src="https://www.turners.co.nz/contentassets/3e15c8546917474ca0a150b18e9fd64e/turnerscars_logo_1line_horz_true-rgb-desktop.png" alt=""/>
-        </div>
+      </div>
         <div className="NavOptions">
           <div className="NavMenu" onMouseEnter={() => setProductsList(true)} onMouseLeave={() => setProductsList(false)}>
             <div className="ListHeader" >
