@@ -15,7 +15,6 @@ const Main = ({ imageSearch }) => {
 
   const handleChange = (e) => {
     let searchText = removePunctuation(e.target.value)
-    console.log(searchText);
     setQueryParams(searchText)
   }
 
