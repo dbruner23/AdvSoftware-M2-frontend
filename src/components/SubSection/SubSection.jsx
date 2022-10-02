@@ -87,7 +87,7 @@ const SubSection = forwardRef((props, imageSearch) => {
                         component="img"
                         height="200"
                         image={returnImages !== null ? returnImages[0] : 'https://autodiscoveries.com/wp-content/uploads/2021/11/Mercedes-Benz-Vision-AVTR-The-Most-Futuristic-Car-From-MB-1-scaled.jpg'}
-                        alt="green iguana"
+                        alt="car1"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: 'Roboto' }}>
@@ -107,7 +107,7 @@ const SubSection = forwardRef((props, imageSearch) => {
                         component="img"
                         height="200"
                         image={returnImages !== null ? returnImages[1] : "https://carsoid.com/wp-content/uploads/2019/08/Amazing-Futuristic-Cars-820x461.jpg"}
-                        alt="green iguana"
+                        alt="car2"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: 'Roboto' }}>
@@ -127,7 +127,7 @@ const SubSection = forwardRef((props, imageSearch) => {
                         component="img"
                         height="200"
                         image={returnImages !== null ? returnImages[2] : "https://inteng-storage.s3.amazonaws.com/img/iea/lV6D2jqrOx/amazingcars11.jpg"}
-                        alt="green iguana"
+                        alt="car3"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: 'Roboto' }}>

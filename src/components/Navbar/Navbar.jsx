@@ -19,17 +19,17 @@ const Navbar = () => {
         <div className="NavOptions">
           <div className="NavMenu" onMouseEnter={() => setProductsList(true)} onMouseLeave={() => setProductsList(false)}>
             <div className="ListHeader" >
-              Products <i class="fa fa-caret-down"></i>
+              Vehicles <i class="fa fa-caret-down"></i>
             </div>
             <div className="Dropdown" onMouseLeave={() => setProductsList(false)} style={productsList ? { display: 'flex' } : { display: 'none' }}>
               <div className="DropItem">
-                WaterTracker
+                Sedans
               </div>
               <div className="DropItem">
-                GeoLink
+                SUVs
               </div>
               <div className="DropItem">
-                Water Visualiser
+                Utility
               </div>
             </div>
           </div>
@@ -55,13 +55,13 @@ const Navbar = () => {
             </div>
             <div className="Dropdown" onMouseLeave={() => setSupportList(false)} style={supportList ? { display: 'flex' } : { display: 'none' }}>
               <div className="DropItem">
-                Community
+                FAQs
+              </div>
+              <div className="DropItem">
+                Insurance
               </div>
               <div className="DropItem">
                 Contact
-              </div>
-              <div className="DropItem">
-                FAQ
               </div>
             </div>
           </div>
