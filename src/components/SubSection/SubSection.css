@@ -13,7 +13,7 @@
     font-weight: 500;
     font-size: 2.5rem;
     height: 10vh;
-    margin: 60px 0 30px 0;
+    margin: 45px 0 30px 0;
 }
 
 .CardContainer {
@@ -71,7 +71,7 @@
     align-items: center;
     background: linear-gradient(98.63deg, #01AFEF 0%, #0E89B9 100%);
     color: white;
-    width: 5rem; 
+    width: 7rem; 
     height: 3rem;
 
     border-radius: .5rem; 
